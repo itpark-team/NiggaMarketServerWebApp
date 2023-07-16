@@ -18,6 +18,7 @@ public class AnnouncementsService
     {
         List<AnnouncementCardResponseDto> announcements = _dbContext.Announcements
             .Where(item => item.IsActive == true)
+            .OrderBy(item => item.Id)
             .Select(
                 announcement => new AnnouncementCardResponseDto()
                 {
